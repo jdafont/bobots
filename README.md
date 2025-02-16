@@ -1,6 +1,14 @@
 # Bobots
 Just a playground for some robotic ideas.
 
+# Build
+```
+mkdir build
+cd build
+cmake ..
+cmake --build .
+```
+
 # Todo
 
 * Ability to represent a 'world'
