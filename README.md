@@ -8,6 +8,11 @@ cd build
 cmake ..
 cmake --build .
 ```
+# Editor support
+From root, run the following to symlink the compile commands after building for editor support.
+```
+ln -s build/compile_commands.json .
+```
 
 # Todo
 
