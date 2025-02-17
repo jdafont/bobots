@@ -1,7 +1,8 @@
 #include "bobots/sim/gaussian_sensor.h"
 #include <memory>
 
-bobot::GaussianSensor_t::GaussianSensor_t(std::shared_ptr<Random_t> random, unsigned int period, double error) 
+bobot::GaussianSensor_t::GaussianSensor_t(std::shared_ptr<Random_t> random, 
+					  unsigned int period, double error) 
 : SimSensor_t(random, period) {
 	m_error = error;
 	m_actualValue = 5.0;
