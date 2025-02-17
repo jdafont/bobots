@@ -7,9 +7,8 @@ namespace bobot {
 
 /**
  * Represents a simulated sensor with a gaussian error distribution. For
- * example, if the error is 5 and the true value is 70, then this will produce
- * a reading by sampling a normal distribution with a mean of 70 and a
- * standard deviation of 5.
+ * example, if the error is 5 and the true value is 100, then this will 
+ * produce a value of 100 +- 5 (5%) 99.7% of the time (stddev 3).
  */
 class GaussianSensor_t : public SimSensor_t {
 public:

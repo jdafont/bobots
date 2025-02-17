@@ -11,6 +11,6 @@ std::any bobot::GaussianSensor_t::getReading() {
 	// m_actualValue +- m_error%
 	// If we assume [m_actualValue - m_error%, m_actualValue + m_error%]
 	// is 99.7% of readings, then stddev is a third of the range.
-	double stddev = 2.0 * m_error * m_actualValue / 3.0;
+	double stddev = m_error * m_actualValue / 3.0;
 	return m_random->gaussian(m_actualValue, stddev);
 }
