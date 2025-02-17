@@ -1,7 +1,7 @@
-project(bobots-core)
+project(bobots-lib)
 
 # Create library from all source files in src directory
-file(GLOB SOURCES "*.cpp")
+file(GLOB SOURCES "bobots/*/*.cpp")
 add_library(${PROJECT_NAME} SHARED ${SOURCES})
 
 # Add include directory

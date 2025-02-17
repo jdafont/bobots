@@ -1,22 +1,39 @@
 #include <iostream>
-#include "bobots/core/vec2.h"
+#include "bobots/sim/world.h"
+#include "bobots/sim/gaussian_sensor.h"
 
-int add(int a, int b) {
-	return a + b;
+void print_if_read(std::any value) {
+	if (!value.has_value()) {
+		std::cout << "No sensor value" << std::endl;
+	} else {
+		double readValue = std::any_cast<double>(value);
+		std::cout << "Sensor value: " << readValue << std::endl;
+	}
 }
 
 int main() {
-	bobot::Vec2_t v1(3, 4);
-	bobot::Vec2_t v2(1, 1);
-	bobot::Vec2_t v3 = v1;
-	v3.translate(3, 5);
-	v3.rotate(0.9);
-	std::cout << "v3 is " << v3.toString() << std::endl;
+	bobot::World_t world;
+	world.step();
+	world.step();
+	world.step();
+	world.step();
+	world.step();
+	world.step();
+	world.step();
+	world.step();
 
-	std::cout << "Norm is " << v1.norm() << std::endl;
-	v3.add(&v2);
-	std::cout << "Added norm is " << v3.norm() << std::endl;
-	std::cout << "Hello bobots!" << std::endl;
-	std::cout << add(3, 4) << std::endl;
+
+	bobot::GaussianSensor_t s1(1, 1);
+	std::cout << "Sensor ready: " << s1.ready() << std::endl;
+	std::cout << "Initializing" << std::endl;
+	s1.initialize();
+	std::cout << "Sensor ready: " << s1.ready() << std::endl;
+	print_if_read(s1.read());
+	s1.step();
+	print_if_read(s1.read());
+	s1.step();
+	print_if_read(s1.read());
+	print_if_read(s1.read());
+
 	return 0;
 }

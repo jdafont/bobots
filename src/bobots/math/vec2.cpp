@@ -1,4 +1,4 @@
-#include "bobots/core/vec2.h"
+#include "bobots/math/vec2.h"
 
 #include <math.h>
 #include <sstream>

@@ -9,6 +9,6 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 # Add the subdirectories
-add_subdirectory(src/bobots/core)
+add_subdirectory(src)
 add_subdirectory(app)
 
