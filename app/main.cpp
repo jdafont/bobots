@@ -16,7 +16,7 @@ int main() {
 	std::cout << "Norm is " << v1.norm() << std::endl;
 	v3.add(&v2);
 	std::cout << "Added norm is " << v3.norm() << std::endl;
-	std::cout << "Hello world" << std::endl;
+	std::cout << "Hello bobots!" << std::endl;
 	std::cout << add(3, 4) << std::endl;
 	return 0;
 }
