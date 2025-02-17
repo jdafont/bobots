@@ -1,7 +1,8 @@
 #include "bobots/sim/sim_sensor.h"
 #include <any>
 
-bobot::SimSensor_t::SimSensor_t(unsigned int period) {
+bobot::SimSensor_t::SimSensor_t(std::shared_ptr<Random_t> random, unsigned int period) {
+	m_random = random;
 	m_period = period;
 	m_initialized = false;
 	m_lastRead = 0;

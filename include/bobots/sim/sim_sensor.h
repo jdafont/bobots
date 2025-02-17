@@ -1,6 +1,11 @@
 #pragma once
 
+#include <memory>
+#include <random>
+
 #include "bobots/base/sensor.h"
+#include "bobots/math/random.h"
+
 namespace bobot {
 
 /**
@@ -11,9 +16,10 @@ public:
 	/**
 	 * Creates a simulated sensor.
 	 *
+	 * @param random Random number generator for producing sensor readings.
 	 * @param period Length of timesteps before a reading is available.
 	 */
-	SimSensor_t(unsigned int period);
+	SimSensor_t(std::shared_ptr<Random_t> random, unsigned int period);
 
 	/**
 	 * Simulates initializing the sensor.
@@ -44,10 +50,11 @@ public:
 protected:
 	virtual std::any getReading() = 0;
 
-private:
 	unsigned int m_period;
 	unsigned int m_lastRead;
 	bool m_initialized;
+
+	std::shared_ptr<Random_t> m_random;
 };
 
 }
