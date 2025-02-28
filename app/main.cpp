@@ -1,8 +1,9 @@
 #include <iostream>
 #include <memory>
 #include "bobots/math/random.h"
+#include "bobots/sim/sensors/sim_distance_sensor.h"
+#include "bobots/sim/sim_value.h"
 #include "bobots/sim/world.h"
-#include "bobots/sim/gaussian_sensor.h"
 
 void print_if_read(std::any value) {
 	if (!value.has_value()) {
@@ -19,14 +20,17 @@ int main() {
 	std::shared_ptr<bobot::Random_t> random = 
 		std::make_shared<bobot::Random_t>(0);
 
-	bobot::GaussianSensor_t s1(random, 1, 0.05);
+	std::shared_ptr<bobot::SimValue_t> distance = 
+		std::make_shared<bobot::SimValue_t>(random, 10, 0.05);
+
+	bobot::SimDistanceSensor_t s1(distance);
 	std::cout << "Sensor ready: " << s1.ready() << std::endl;
 	std::cout << "Initializing" << std::endl;
 	s1.initialize();
 	std::cout << "Sensor ready: " << s1.ready() << std::endl;
 	for (int i = 0; i < 10; ++i) {
 		print_if_read(s1.read());
-		s1.step();
+		//s1.step();
 	}
 
 	return 0;
